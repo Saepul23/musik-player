@@ -42,6 +42,10 @@ input[type=file]{
   width:100%;margin-top:15px;color:#ddd;
 }
 </style>
+  
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#10101a">
+  
 </head>
 <body>
 
@@ -161,5 +165,13 @@ audio.onplay=()=>play.textContent="⏸";
 audio.onpause=()=>play.textContent="▶";
 </script>
 
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js");
+  });
+}
+</script>
+  
 </body>
 </html>
